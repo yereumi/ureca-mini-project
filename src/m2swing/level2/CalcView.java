@@ -16,7 +16,7 @@ public class CalcView {
     private JButton btnCls, btnEquals, btnPlus, btnMinus, btnMul, btnDiv;
     private GridLayout grid;
     private CalcWindowEventProcessor winEventProc;
-    private CalcActionProcessor actionEventProc;
+    private CalcActionEventProcessor actionEventProc;
 
     public CalcView() {
         frm = new JFrame("사칙연산기");
@@ -58,7 +58,7 @@ public class CalcView {
     public void addEvent() {
         winEventProc = new CalcWindowEventProcessor();
         frm.addWindowListener(winEventProc);
-        actionEventProc = new CalcActionProcessor(tf);
+        actionEventProc = new CalcActionEventProcessor(tf);
         btn0.addActionListener(actionEventProc);
         btn1.addActionListener(actionEventProc);
         btn2.addActionListener(actionEventProc);
