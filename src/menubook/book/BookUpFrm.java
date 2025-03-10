@@ -8,14 +8,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class BookInsFrm extends JFrame {
+public class BookUpFrm extends JFrame {
 
 	private JPanel panInsert, panButton;
 	private JLabel labelBookName, labelPublisher, labelPrice;
 	protected JTextField tfBookName, tfPublisher, tfPrice;
-	private JButton btnSave, btnCancel;
+	private JButton btnUpdate, btnDelete, btnCancel;
 
-	public BookInsFrm() {
+	public BookUpFrm() {
 		panInsert = new JPanel();
 		panButton = new JPanel();
 		labelBookName = new JLabel("BookName");
@@ -24,8 +24,9 @@ public class BookInsFrm extends JFrame {
 		tfBookName = new JTextField();
 		tfPublisher = new JTextField();
 		tfPrice = new JTextField();
-		btnSave = new JButton("도서 저장");
-		btnCancel = new JButton("입력 취소");
+		btnUpdate = new JButton("도서 수정");
+		btnDelete = new JButton("도서 삭제");
+		btnCancel = new JButton("수정 취소");
 		makeGui();
 	}
 
@@ -43,12 +44,14 @@ public class BookInsFrm extends JFrame {
 		panInsert.add(tfPrice);			tfPrice.setBounds(120, 90, 300, 35);
 		//==================================
 		add(panButton, BorderLayout.SOUTH);
-		panButton.add(btnSave);
+		panButton.add(btnUpdate);
+		panButton.add(btnDelete);
 		panButton.add(btnCancel);
 	}
 
 	public void addEvent(BookControl bookControl) {
-		btnSave.addActionListener(bookControl);
+		btnUpdate.addActionListener(bookControl);
+		btnDelete.addActionListener(bookControl);
 		btnCancel.addActionListener(bookControl);
 	}
 
